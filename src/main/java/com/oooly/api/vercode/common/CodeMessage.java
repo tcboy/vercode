@@ -23,12 +23,10 @@ public class CodeMessage {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(code);
-        for (String m : msg)
-        {
+        for (String m : msg) {
             sb.append(SEPARATOR).append(m);
         }
 

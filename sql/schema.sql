@@ -21,6 +21,7 @@ create table `user` (
     `id` int unsigned not null auto_increment,
     `name` varchar(50) not null,
 	`token` varchar(50) not null,
+	`type` tinyint unsigned NOT NULL DEFAULT 0 COMMENT '0表示号码商, 1表示验证码获取方',
     `create_time` timestamp not null default now(),
     primary key(`id`),
     unique key `uniq_token` (`token`)

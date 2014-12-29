@@ -7,9 +7,15 @@ import java.util.Date;
  */
 public class User {
 
+    public static final Integer CARD = 0;
+    /** 卡商标识 */
+    public static final Integer APP = 1;
+    /** APP用户标识 */
+
     private Integer id;
     private String name;
     private String token;
+    private Integer type;
     private Date createTime;
 
     public Integer getId() {
@@ -34,6 +40,14 @@ public class User {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Date getCreateTime() {
