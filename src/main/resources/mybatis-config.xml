@@ -10,10 +10,12 @@
 
     <typeAliases>
         <typeAlias type="com.oooly.api.vercode.system.phone.Phone" alias="phone" />
+        <typeAlias type="com.oooly.api.vercode.system.user.User" alias="user" />
     </typeAliases>
 
     <mappers>
         <mapper resource="mapper/phone.xml" />
+        <mapper resource="mapper/user.xml" />
     </mappers>
 
 </configuration>

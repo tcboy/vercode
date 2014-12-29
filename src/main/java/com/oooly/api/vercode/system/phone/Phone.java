@@ -7,12 +7,17 @@ import java.util.Date;
  */
 public class Phone {
 
-    public static final int NEVER_USE = 0;  /** 从未使用过 */
-    public static final int WAIT_CODE = 1;  /** 等待验证码 */
-    public static final int GET_CODE = 2;   /** 已获得验证码 */
-    public static final int USED = 3;       /** 已经使用过 */
+    public static final int NEVER_USE = 0;
+    /** 从未使用过 */
+    public static final int WAIT_CODE = 1;
+    /** 等待验证码 */
+    public static final int GET_CODE = 2;
+    /** 已获得验证码 */
+    public static final int USED = 3;
+    /** 已经使用过 */
 
     private Integer id;
+    private Integer userId;
     private String number;
     private Integer status;
     private String code;
@@ -25,6 +30,14 @@ public class Phone {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getNumber() {

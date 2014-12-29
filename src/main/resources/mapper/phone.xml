@@ -10,6 +10,7 @@
         <![CDATA[
             select
                 id,
+                user_id as userId,
                 number,
                 status,
                 code,
@@ -24,6 +25,9 @@
             </if>
             <if test="status != null">
                 and status = #{status}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
             </if>
         </where>
     </select>
@@ -41,6 +45,9 @@
             <if test="status != null">
                 and status = #{status}
             </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
         </where>
     </select>
 
@@ -49,13 +56,14 @@
             keyProperty="id">
         <![CDATA[
             insert into phone (
-                id,
+                user_id,
                 number,
                 status,
                 code,
                 create_time,
                 use_time
             ) values (
+                #{userId},
                 #{number},
                 #{status},
                 #{code},
@@ -69,6 +77,9 @@
             parameterType="phone">
             update phone
             <set>
+                <if test="userId != null">
+                    user_id=#{userId},
+                </if>
                 <if test="status != null">
                     status=#{status},
                 </if>
