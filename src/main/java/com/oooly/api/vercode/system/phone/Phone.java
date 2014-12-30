@@ -13,8 +13,6 @@ public class Phone {
     /** 等待验证码 */
     public static final Integer GET_CODE = 2;
     /** 已获得验证码 */
-    public static final Integer USED = 3;
-    /** 已经使用过 */
 
     private Integer id;
     private Integer userId;
@@ -78,5 +76,9 @@ public class Phone {
 
     public void setUseTime(Date useTime) {
         this.useTime = useTime;
+    }
+
+    public static boolean check(String number) {
+        return true;
     }
 }

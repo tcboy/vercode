@@ -32,6 +32,100 @@
         </where>
     </select>
 
+    <select id="selectUpdate"
+            parameterType="map"
+            resultType="phone">
+        <![CDATA[
+            select
+                id,
+                user_id as userId,
+                number,
+                status,
+                code,
+                create_time as createTime,
+                use_time as useTime
+            from
+                phone
+        ]]>
+        <where>
+            <if test="number != null and number != ''">
+                and number = #{number}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+        </where>
+        for update
+    </select>
+
+    <select id="selectOne"
+            parameterType="map"
+            resultType="phone">
+        <![CDATA[
+            select
+                id,
+                user_id as userId,
+                number,
+                status,
+                code,
+                create_time as createTime,
+                use_time as useTime
+            from
+                phone
+        ]]>
+        <where>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+        order by create_time
+        limit 1
+        for update
+    </select>
+
+    <select id="selectNumber"
+            parameterType="map"
+            resultType="String">
+        <![CDATA[
+            select
+                number
+            from
+                phone, user
+        ]]>
+        <where>
+            phone.user_id = user.id
+            <if test="status != null">
+                and phone.status = #{status}
+            </if>
+            <if test="token != null and token != ''">
+                and user.token = #{token}
+            </if>
+        </where>
+    </select>
+
+    <select id="checkCount"
+            parameterType="map"
+            resultType="java.lang.Integer">
+        <![CDATA[
+            select
+                count(*)
+            from
+                phone, user
+        ]]>
+        <where>
+            phone.user_id = user.id
+            <if test="number != null and number != ''">
+                and phone.number = #{number}
+            </if>
+            <if test="token != null and token != ''">
+                and user.token = #{token}
+            </if>
+        </where>
+    </select>
+
     <select id="selectCount"
             parameterType="map"
             resultType="java.lang.Integer">
